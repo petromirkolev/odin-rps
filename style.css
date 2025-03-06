@@ -20,9 +20,12 @@
 
 #player-image,
 #computer-image {
-  width: 20vw;
+  width: 15vw;
 }
-
+#winner {
+  padding: 10px;
+  border-radius: 10px;
+}
 .game-images img {
   width: 5vw;
 }
