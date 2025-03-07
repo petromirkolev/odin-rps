@@ -47,14 +47,9 @@ function roundWinner(computerWeapon, playerWeapon) {
   gameRounds++;
 }
 
-// Start the game on player selection
-document.addEventListener('click', (e) => {
-  if (currentRound < maxRounds) {
-    currentRound++;
-    let computerWeapon = computerChoice();
-    let playerWeapon = e.target.id;
-    roundWinner(computerWeapon, playerWeapon);
-  } else {
+// Check for winner
+function checkWinner() {
+  if ((currentRound = maxRounds)) {
     document.getElementById(
       'current-round'
     ).textContent = `Max rounds reached!`;
@@ -65,5 +60,16 @@ document.addEventListener('click', (e) => {
     } else {
       document.getElementById('winner').textContent = `Game tie!`;
     }
+  }
+}
+
+// Start the game on player selection
+document.addEventListener('click', (e) => {
+  if (currentRound < maxRounds) {
+    checkWinner();
+    currentRound++;
+    let computerWeapon = computerChoice();
+    let playerWeapon = e.target.id;
+    roundWinner(computerWeapon, playerWeapon);
   }
 });
