@@ -49,7 +49,7 @@ function roundWinner(computerWeapon, playerWeapon) {
 
 // Check for winner
 function checkWinner() {
-  if ((currentRound = maxRounds)) {
+  if (currentRound === maxRounds) {
     document.getElementById(
       'current-round'
     ).textContent = `Max rounds reached!`;
@@ -66,11 +66,14 @@ function checkWinner() {
 // Start the game on player selection
 document.addEventListener('click', (e) => {
   document.getElementById('swoosh-sound').play();
+  console.log(gameRounds);
+  console.log(maxRounds);
+
   if (currentRound < maxRounds) {
-    checkWinner();
     currentRound++;
     let computerWeapon = computerChoice();
     let playerWeapon = e.target.id;
     roundWinner(computerWeapon, playerWeapon);
+    checkWinner();
   }
 });
