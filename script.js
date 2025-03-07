@@ -66,8 +66,6 @@ function checkWinner() {
 // Start the game on player selection
 document.addEventListener('click', (e) => {
   document.getElementById('swoosh-sound').play();
-  console.log(gameRounds);
-  console.log(maxRounds);
 
   if (currentRound < maxRounds) {
     currentRound++;

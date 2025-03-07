@@ -24,7 +24,8 @@ body {
 }
 
 #player-image,
-#computer-image {
+#computer-image,
+#arena {
   width: 15vw;
 }
 #winner {
