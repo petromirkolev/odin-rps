@@ -7,7 +7,7 @@ let playerScore = 0;
 
 // Set the playground on page load
 (() => {
-  let maxRounds = prompt('How many rounds would you like to play?');
+  maxRounds = Number(prompt('How many rounds would you like to play?'));
   document.getElementById(
     'max-rounds'
   ).textContent = `Max rounds: ${maxRounds}`;
@@ -23,5 +23,43 @@ function computerChoice() {
   return gameChoices[Math.floor(Math.random() * gameChoices.length)];
 }
 
+// Determine the round winner
+function roundWinner(computerWeapon, playerWeapon) {
+  document.getElementById(
+    'current-round'
+  ).textContent = `Current round: ${currentRound}`;
+  if (computerWeapon === playerWeapon) {
+    document.getElementById('winner').textContent = `It's a tie!`;
+    return;
+  } else if (computerWeapon === 'rock' && playerWeapon === 'scissors') {
+    document.getElementById('winner').textContent = `Computer wins!`;
+  } else if (computerWeapon === 'paper' && playerWeapon === 'rock') {
+    document.getElementById('winner').textContent = `Computer wins!`;
+  } else if (computerWeapon === 'scissors' && playerWeapon === 'paper') {
+    document.getElementById('winner').textContent = `Computer wins!`;
+  } else {
+    document.getElementById('winner').textContent = `Player wins!`;
+  }
+  gameRounds++;
+}
+
 // Start the game on player selection
-document.addEventListener('click', (e) => {});
+document.addEventListener('click', (e) => {
+  if (currentRound <= maxRounds) {
+    currentRound++;
+    let computerWeapon = computerChoice();
+    let playerWeapon = e.target.id;
+    roundWinner(computerWeapon, playerWeapon);
+  } else {
+    document.getElementById(
+      'current-round'
+    ).textContent = `Max rounds reached!`;
+    if (computerScore > playerScore) {
+      document.getElementById('winner').textContent = `Game winner - Computer!`;
+    } else if (computerScore < playerScore) {
+      document.getElementById('winner').textContent = `Game winner - Player!`;
+    } else {
+      document.getElementById('winner').textContent = `Game tie!`;
+    }
+  }
+});
