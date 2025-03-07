@@ -7,7 +7,7 @@ let playerScore = 0;
 
 // Set the playground on page load
 (() => {
-  // maxRounds = Number(prompt('How many rounds would you like to play?'));
+  maxRounds = Number(prompt('How many rounds would you like to play?'));
   document.getElementById(
     'max-rounds'
   ).textContent = `Max rounds: ${maxRounds}`;
