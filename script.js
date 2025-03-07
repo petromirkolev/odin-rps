@@ -33,19 +33,23 @@ function roundWinner(computerWeapon, playerWeapon) {
     return;
   } else if (computerWeapon === 'rock' && playerWeapon === 'scissors') {
     document.getElementById('winner').textContent = `Computer wins!`;
+    computerScore++;
   } else if (computerWeapon === 'paper' && playerWeapon === 'rock') {
     document.getElementById('winner').textContent = `Computer wins!`;
+    computerScore++;
   } else if (computerWeapon === 'scissors' && playerWeapon === 'paper') {
     document.getElementById('winner').textContent = `Computer wins!`;
+    computerScore++;
   } else {
     document.getElementById('winner').textContent = `Player wins!`;
+    playerScore++;
   }
   gameRounds++;
 }
 
 // Start the game on player selection
 document.addEventListener('click', (e) => {
-  if (currentRound <= maxRounds) {
+  if (currentRound < maxRounds) {
     currentRound++;
     let computerWeapon = computerChoice();
     let playerWeapon = e.target.id;
