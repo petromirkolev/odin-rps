@@ -1,13 +1,18 @@
 * {
+  border: none;
+}
+
+body {
   background-color: aquamarine;
   font-family: monospace;
+  margin: 0;
 }
 
 .game-container {
+  height: 100vh;
   display: flex;
-  flex-direction: row;
   justify-content: space-evenly;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .player-container,
@@ -31,5 +36,15 @@
 }
 
 .game-images img:hover {
-  width: 6vw;
+  animation: game-images-in 0.3s forwards;
+}
+
+@keyframes game-images-in {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.5);
+  }
 }
